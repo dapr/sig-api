@@ -1,0 +1,18 @@
+version: '3'
+services:
+  ############################
+  # Redis state store
+  ############################
+  redis:
+    image: "redis:alpine"
+    ports:
+      - "6379:6379"
+  tck-dapr:
+    image: "daprio/daprd:edge"
+    ports: 
+      - "3500:3500"
+    command: ["./daprd",
+     "-app-id", "tck-app",
+     "-components-path", "/components"]
+    volumes:
+        - "./components/:/components"

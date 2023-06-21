@@ -1,0 +1,756 @@
+openapi: 3.0.1
+components:
+  schemas:
+    dapr.proto.components.v1.BulkDeleteRequest:
+      properties:
+        items:
+          items:
+            properties:
+              etag:
+                description: The etag is used as a If-Match header, to allow certain levels of consistency.
+                properties:
+                  value:
+                    description: value sets the etag value
+                    type: string
+                type: object
+              key:
+                description: The key that should be deleted.
+                type: string
+              metadata:
+                additionalProperties:
+                  type: string
+                description: The request metadata.
+                type: object
+              options:
+                properties:
+                  concurrency:
+                    enum:
+                      - CONCURRENCY_UNSPECIFIED
+                      - CONCURRENCY_FIRST_WRITE
+                      - CONCURRENCY_LAST_WRITE
+                    type: string
+                  consistency:
+                    enum:
+                      - CONSISTENCY_UNSPECIFIED
+                      - CONSISTENCY_EVENTUAL
+                      - CONSISTENCY_STRONG
+                    type: string
+                type: object
+            type: object
+          type: array
+        options:
+          properties:
+            parallelism:
+              format: int64
+              type: integer
+              x-kubernetes-int-or-string: true
+          type: object
+      type: object
+    dapr.proto.components.v1.BulkDeleteRequestOptions:
+      properties:
+        parallelism:
+          format: int64
+          type: integer
+          x-kubernetes-int-or-string: true
+      type: object
+    dapr.proto.components.v1.BulkDeleteResponse:
+      description: reserved for future-proof extensibility
+      type: object
+    dapr.proto.components.v1.BulkGetRequest:
+      properties:
+        items:
+          items:
+            properties:
+              consistency:
+                description: The get consistency level.
+                enum:
+                  - CONSISTENCY_UNSPECIFIED
+                  - CONSISTENCY_EVENTUAL
+                  - CONSISTENCY_STRONG
+                type: string
+              key:
+                description: The key that should be retrieved.
+                type: string
+              metadata:
+                additionalProperties:
+                  type: string
+                description: Request associated metadata.
+                type: object
+            type: object
+          type: array
+        options:
+          properties:
+            parallelism:
+              format: int64
+              type: integer
+              x-kubernetes-int-or-string: true
+          type: object
+      type: object
+    dapr.proto.components.v1.BulkGetRequestOptions:
+      properties:
+        parallelism:
+          format: int64
+          type: integer
+          x-kubernetes-int-or-string: true
+      type: object
+    dapr.proto.components.v1.BulkGetResponse:
+      properties:
+        items:
+          items:
+            properties:
+              contentType:
+                description: The data contenttype
+                type: string
+              data:
+                description: The associated data of the fetched item.
+                format: byte
+                type: string
+              error:
+                description: A fetch error if there's some.
+                type: string
+              etag:
+                description: The item ETag
+                properties:
+                  value:
+                    description: value sets the etag value
+                    type: string
+                type: object
+              key:
+                description: The key of the fetched item.
+                type: string
+              metadata:
+                additionalProperties:
+                  type: string
+                description: The State Item metadata.
+                type: object
+            type: object
+          type: array
+      type: object
+    dapr.proto.components.v1.BulkSetRequest:
+      properties:
+        items:
+          items:
+            properties:
+              contentType:
+                description: The data contenttype
+                type: string
+              etag:
+                description: The etag is used as a If-Match header, to allow certain levels of consistency.
+                properties:
+                  value:
+                    description: value sets the etag value
+                    type: string
+                type: object
+              key:
+                description: The key that should be set.
+                type: string
+              metadata:
+                additionalProperties:
+                  type: string
+                description: The request metadata.
+                type: object
+              options:
+                description: The Set request options.
+                properties:
+                  concurrency:
+                    enum:
+                      - CONCURRENCY_UNSPECIFIED
+                      - CONCURRENCY_FIRST_WRITE
+                      - CONCURRENCY_LAST_WRITE
+                    type: string
+                  consistency:
+                    enum:
+                      - CONSISTENCY_UNSPECIFIED
+                      - CONSISTENCY_EVENTUAL
+                      - CONSISTENCY_STRONG
+                    type: string
+                type: object
+              value:
+                description: Value is the desired content of the given key.
+                format: byte
+                type: string
+            type: object
+          type: array
+        options:
+          properties:
+            parallelism:
+              format: int64
+              type: integer
+              x-kubernetes-int-or-string: true
+          type: object
+      type: object
+    dapr.proto.components.v1.BulkSetRequestOptions:
+      properties:
+        parallelism:
+          format: int64
+          type: integer
+          x-kubernetes-int-or-string: true
+      type: object
+    dapr.proto.components.v1.BulkSetResponse:
+      description: reserved for future-proof extensibility
+      type: object
+    dapr.proto.components.v1.BulkStateItem:
+      properties:
+        contentType:
+          description: The data contenttype
+          type: string
+        data:
+          description: The associated data of the fetched item.
+          format: byte
+          type: string
+        error:
+          description: A fetch error if there's some.
+          type: string
+        etag:
+          description: The item ETag
+          properties:
+            value:
+              description: value sets the etag value
+              type: string
+          type: object
+        key:
+          description: The key of the fetched item.
+          type: string
+        metadata:
+          additionalProperties:
+            type: string
+          description: The State Item metadata.
+          type: object
+      type: object
+    dapr.proto.components.v1.DeleteRequest:
+      properties:
+        etag:
+          description: The etag is used as a If-Match header, to allow certain levels of consistency.
+          properties:
+            value:
+              description: value sets the etag value
+              type: string
+          type: object
+        key:
+          description: The key that should be deleted.
+          type: string
+        metadata:
+          additionalProperties:
+            type: string
+          description: The request metadata.
+          type: object
+        options:
+          properties:
+            concurrency:
+              enum:
+                - CONCURRENCY_UNSPECIFIED
+                - CONCURRENCY_FIRST_WRITE
+                - CONCURRENCY_LAST_WRITE
+              type: string
+            consistency:
+              enum:
+                - CONSISTENCY_UNSPECIFIED
+                - CONSISTENCY_EVENTUAL
+                - CONSISTENCY_STRONG
+              type: string
+          type: object
+      type: object
+    dapr.proto.components.v1.DeleteResponse:
+      description: reserved for future-proof extensibility
+      type: object
+    dapr.proto.components.v1.Etag:
+      description: Etag represents a state item version
+      properties:
+        value:
+          description: value sets the etag value
+          type: string
+      type: object
+    dapr.proto.components.v1.FeaturesRequest:
+      description: reserved for future-proof extensibility
+      type: object
+    dapr.proto.components.v1.FeaturesResponse:
+      properties:
+        features:
+          items:
+            type: string
+          type: array
+      type: object
+    dapr.proto.components.v1.GetRequest:
+      properties:
+        consistency:
+          description: The get consistency level.
+          enum:
+            - CONSISTENCY_UNSPECIFIED
+            - CONSISTENCY_EVENTUAL
+            - CONSISTENCY_STRONG
+          type: string
+        key:
+          description: The key that should be retrieved.
+          type: string
+        metadata:
+          additionalProperties:
+            type: string
+          description: Request associated metadata.
+          type: object
+      type: object
+    dapr.proto.components.v1.GetResponse:
+      properties:
+        contentType:
+          description: The response data contenttype
+          type: string
+        data:
+          description: The data of the GetRequest response.
+          format: byte
+          type: string
+        etag:
+          description: The etag of the associated key.
+          properties:
+            value:
+              description: value sets the etag value
+              type: string
+          type: object
+        metadata:
+          additionalProperties:
+            type: string
+          description: Metadata related to the response.
+          type: object
+      type: object
+    dapr.proto.components.v1.InitRequest:
+      description: InitRequest is the request for initializing the component.
+      properties:
+        metadata:
+          properties:
+            properties:
+              additionalProperties:
+                type: string
+              type: object
+          type: object
+      type: object
+    dapr.proto.components.v1.InitResponse:
+      description: reserved for future-proof extensibility
+      type: object
+    dapr.proto.components.v1.MetadataRequest:
+      description: Base metadata request for all components
+      properties:
+        properties:
+          additionalProperties:
+            type: string
+          type: object
+      type: object
+    dapr.proto.components.v1.Pagination:
+      properties:
+        limit:
+          description: Maximum of results that should be returned.
+          format: int64
+          type: integer
+          x-kubernetes-int-or-string: true
+        token:
+          description: The pagination token.
+          type: string
+      type: object
+    dapr.proto.components.v1.PingRequest:
+      description: reserved for future-proof extensibility
+      type: object
+    dapr.proto.components.v1.PingResponse:
+      description: reserved for future-proof extensibility
+      type: object
+    dapr.proto.components.v1.Query:
+      properties:
+        filter:
+          additionalProperties:
+            properties:
+              typeUrl:
+                description: A URL/resource name that uniquely identifies the type of the serialized protocol buffer message. This string must contain at least one "/" character. The last segment of the URL's path must represent the fully qualified name of the type (as in `path/google.protobuf.Duration`). The name should be in a canonical form (e.g., leading "." is not accepted).
+                type: string
+              value:
+                description: Must be a valid serialized protocol buffer of the above specified type.
+                format: byte
+                type: string
+            type: object
+          description: Filters that should be applied.
+          type: object
+        pagination:
+          description: The query pagination params.
+          properties:
+            limit:
+              description: Maximum of results that should be returned.
+              format: int64
+              type: integer
+              x-kubernetes-int-or-string: true
+            token:
+              description: The pagination token.
+              type: string
+          type: object
+        sort:
+          description: The sort order.
+          items:
+            properties:
+              key:
+                description: The key that should be used for sorting.
+                type: string
+              order:
+                description: The order that should be used.
+                enum:
+                  - ASC
+                  - DESC
+                type: string
+            type: object
+          type: array
+      type: object
+    dapr.proto.components.v1.QueryItem:
+      description: QueryItem is an object representing a single entry in query results.
+      properties:
+        contentType:
+          description: The returned contenttype
+          type: string
+        data:
+          description: The returned item Data.
+          format: byte
+          type: string
+        error:
+          description: The returned error string.
+          type: string
+        etag:
+          description: The returned item ETag
+          properties:
+            value:
+              description: value sets the etag value
+              type: string
+          type: object
+        key:
+          description: The returned item Key.
+          type: string
+      type: object
+    dapr.proto.components.v1.QueryRequest:
+      description: QueryRequest is for querying state store.
+      properties:
+        metadata:
+          additionalProperties:
+            type: string
+          description: Request associated metadata.
+          type: object
+        query:
+          description: The query to be performed.
+          properties:
+            filter:
+              additionalProperties:
+                properties:
+                  typeUrl:
+                    description: A URL/resource name that uniquely identifies the type of the serialized protocol buffer message. This string must contain at least one "/" character. The last segment of the URL's path must represent the fully qualified name of the type (as in `path/google.protobuf.Duration`). The name should be in a canonical form (e.g., leading "." is not accepted).
+                    type: string
+                  value:
+                    description: Must be a valid serialized protocol buffer of the above specified type.
+                    format: byte
+                    type: string
+                type: object
+              description: Filters that should be applied.
+              type: object
+            pagination:
+              description: The query pagination params.
+              properties:
+                limit:
+                  description: Maximum of results that should be returned.
+                  format: int64
+                  type: integer
+                  x-kubernetes-int-or-string: true
+                token:
+                  description: The pagination token.
+                  type: string
+              type: object
+            sort:
+              description: The sort order.
+              items:
+                properties:
+                  key:
+                    description: The key that should be used for sorting.
+                    type: string
+                  order:
+                    description: The order that should be used.
+                    enum:
+                      - ASC
+                      - DESC
+                    type: string
+                type: object
+              type: array
+          type: object
+      type: object
+    dapr.proto.components.v1.QueryResponse:
+      description: QueryResponse is the query response.
+      properties:
+        items:
+          description: The query response items.
+          items:
+            description: QueryItem is an object representing a single entry in query results.
+            properties:
+              contentType:
+                description: The returned contenttype
+                type: string
+              data:
+                description: The returned item Data.
+                format: byte
+                type: string
+              error:
+                description: The returned error string.
+                type: string
+              etag:
+                description: The returned item ETag
+                properties:
+                  value:
+                    description: value sets the etag value
+                    type: string
+                type: object
+              key:
+                description: The returned item Key.
+                type: string
+            type: object
+          type: array
+        metadata:
+          additionalProperties:
+            type: string
+          description: Response associated metadata.
+          type: object
+        token:
+          description: The response token.
+          type: string
+      type: object
+    dapr.proto.components.v1.SetRequest:
+      properties:
+        contentType:
+          description: The data contenttype
+          type: string
+        etag:
+          description: The etag is used as a If-Match header, to allow certain levels of consistency.
+          properties:
+            value:
+              description: value sets the etag value
+              type: string
+          type: object
+        key:
+          description: The key that should be set.
+          type: string
+        metadata:
+          additionalProperties:
+            type: string
+          description: The request metadata.
+          type: object
+        options:
+          description: The Set request options.
+          properties:
+            concurrency:
+              enum:
+                - CONCURRENCY_UNSPECIFIED
+                - CONCURRENCY_FIRST_WRITE
+                - CONCURRENCY_LAST_WRITE
+              type: string
+            consistency:
+              enum:
+                - CONSISTENCY_UNSPECIFIED
+                - CONSISTENCY_EVENTUAL
+                - CONSISTENCY_STRONG
+              type: string
+          type: object
+        value:
+          description: Value is the desired content of the given key.
+          format: byte
+          type: string
+      type: object
+    dapr.proto.components.v1.SetResponse:
+      description: reserved for future-proof extensibility
+      type: object
+    dapr.proto.components.v1.Sorting:
+      properties:
+        key:
+          description: The key that should be used for sorting.
+          type: string
+        order:
+          description: The order that should be used.
+          enum:
+            - ASC
+            - DESC
+          type: string
+      type: object
+    dapr.proto.components.v1.StateOptions:
+      description: StateOptions configures concurrency and consistency for state operations
+      properties:
+        concurrency:
+          enum:
+            - CONCURRENCY_UNSPECIFIED
+            - CONCURRENCY_FIRST_WRITE
+            - CONCURRENCY_LAST_WRITE
+          type: string
+        consistency:
+          enum:
+            - CONSISTENCY_UNSPECIFIED
+            - CONSISTENCY_EVENTUAL
+            - CONSISTENCY_STRONG
+          type: string
+      type: object
+    dapr.proto.components.v1.TransactionalStateOperation:
+      description: TransactionalStateOperation describes operation type, key, and value for transactional operation.
+      properties:
+        delete:
+          properties:
+            etag:
+              description: The etag is used as a If-Match header, to allow certain levels of consistency.
+              properties:
+                value:
+                  description: value sets the etag value
+                  type: string
+              type: object
+            key:
+              description: The key that should be deleted.
+              type: string
+            metadata:
+              additionalProperties:
+                type: string
+              description: The request metadata.
+              type: object
+            options:
+              properties:
+                concurrency:
+                  enum:
+                    - CONCURRENCY_UNSPECIFIED
+                    - CONCURRENCY_FIRST_WRITE
+                    - CONCURRENCY_LAST_WRITE
+                  type: string
+                consistency:
+                  enum:
+                    - CONSISTENCY_UNSPECIFIED
+                    - CONSISTENCY_EVENTUAL
+                    - CONSISTENCY_STRONG
+                  type: string
+              type: object
+          type: object
+        set:
+          properties:
+            contentType:
+              description: The data contenttype
+              type: string
+            etag:
+              description: The etag is used as a If-Match header, to allow certain levels of consistency.
+              properties:
+                value:
+                  description: value sets the etag value
+                  type: string
+              type: object
+            key:
+              description: The key that should be set.
+              type: string
+            metadata:
+              additionalProperties:
+                type: string
+              description: The request metadata.
+              type: object
+            options:
+              description: The Set request options.
+              properties:
+                concurrency:
+                  enum:
+                    - CONCURRENCY_UNSPECIFIED
+                    - CONCURRENCY_FIRST_WRITE
+                    - CONCURRENCY_LAST_WRITE
+                  type: string
+                consistency:
+                  enum:
+                    - CONSISTENCY_UNSPECIFIED
+                    - CONSISTENCY_EVENTUAL
+                    - CONSISTENCY_STRONG
+                  type: string
+              type: object
+            value:
+              description: Value is the desired content of the given key.
+              format: byte
+              type: string
+          type: object
+      type: object
+    dapr.proto.components.v1.TransactionalStateRequest:
+      description: TransactionalStateRequest describes a transactional operation against a state store that comprises multiple types of operations The Request field is either a DeleteRequest or SetRequest.
+      properties:
+        metadata:
+          additionalProperties:
+            type: string
+          description: Request associated metadata.
+          type: object
+        operations:
+          description: Operations that should be performed.
+          items:
+            description: TransactionalStateOperation describes operation type, key, and value for transactional operation.
+            properties:
+              delete:
+                properties:
+                  etag:
+                    description: The etag is used as a If-Match header, to allow certain levels of consistency.
+                    properties:
+                      value:
+                        description: value sets the etag value
+                        type: string
+                    type: object
+                  key:
+                    description: The key that should be deleted.
+                    type: string
+                  metadata:
+                    additionalProperties:
+                      type: string
+                    description: The request metadata.
+                    type: object
+                  options:
+                    properties:
+                      concurrency:
+                        enum:
+                          - CONCURRENCY_UNSPECIFIED
+                          - CONCURRENCY_FIRST_WRITE
+                          - CONCURRENCY_LAST_WRITE
+                        type: string
+                      consistency:
+                        enum:
+                          - CONSISTENCY_UNSPECIFIED
+                          - CONSISTENCY_EVENTUAL
+                          - CONSISTENCY_STRONG
+                        type: string
+                    type: object
+                type: object
+              set:
+                properties:
+                  contentType:
+                    description: The data contenttype
+                    type: string
+                  etag:
+                    description: The etag is used as a If-Match header, to allow certain levels of consistency.
+                    properties:
+                      value:
+                        description: value sets the etag value
+                        type: string
+                    type: object
+                  key:
+                    description: The key that should be set.
+                    type: string
+                  metadata:
+                    additionalProperties:
+                      type: string
+                    description: The request metadata.
+                    type: object
+                  options:
+                    description: The Set request options.
+                    properties:
+                      concurrency:
+                        enum:
+                          - CONCURRENCY_UNSPECIFIED
+                          - CONCURRENCY_FIRST_WRITE
+                          - CONCURRENCY_LAST_WRITE
+                        type: string
+                      consistency:
+                        enum:
+                          - CONSISTENCY_UNSPECIFIED
+                          - CONSISTENCY_EVENTUAL
+                          - CONSISTENCY_STRONG
+                        type: string
+                    type: object
+                  value:
+                    description: Value is the desired content of the given key.
+                    format: byte
+                    type: string
+                type: object
+            type: object
+          type: array
+      type: object
+    dapr.proto.components.v1.TransactionalStateResponse:
+      description: reserved for future-proof extensibility
+      type: object
+info:
+  title: OpenAPI Spec Schemas from Dapr Proto
+  version: v1
