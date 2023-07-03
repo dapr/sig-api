@@ -101,7 +101,7 @@ paths:
         - state
       summary: Store state to the Statestore
       description: Store state to the Dapr Statestore Component
-      operationId: store-state
+      operationId: post-store-state
       parameters:
       - in: path
         name: statestore
@@ -121,6 +121,162 @@ paths:
         '400':
           description: "State store is missing or misconfigured"
         '500':
+          description: "An error occurred, check the Dapr logs"
+    put: 
+      tags:
+        - state
+      summary: Store state to the Statestore
+      description: Store state to the Dapr Statestore Component
+      operationId: put-store-state
+      parameters:
+      - in: path
+        name: statestore
+        description: Statestore from where to retrieve data
+        required: true
+        schema:
+          type: string
+      requestBody: 
+        description: Values to store
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/StateRequestArray"
+      responses:
+        '204':
+          description: "State saved"
+        '400':
+          description: "State store is missing or misconfigured"
+        '500':
+          description: "An error occurred, check the Dapr logs"      
+  /v1.0/state/{statestore}/bulk:
+    post: 
+      tags:
+        - state
+      summary: Get Bulk state from the Statestore
+      description: This endpoint lets you get a list of values for a given list of keys.
+      operationId: post-bulk-get-state
+      parameters:
+      - in: path
+        name: statestore
+        description: Statestore from where to retrieve data
+        required: true
+        schema:
+          type: string
+      requestBody: 
+        description: Values to store
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/StateRequestArray" 
+      responses:
+        "200": 
+          description: "State retrieved successfully"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StateGetResponse"
+        "204":
+          description: "State Key is not found"
+        "400":
+          description: "State store is missing or misconfigured"
+        "500":
+          description: "An error occurred, check the Dapr logs"
+    put: 
+      tags:
+        - state
+      summary: Get Bulk state from the Statestore
+      description: This endpoint lets you get a list of values for a given list of keys.
+      operationId: put-bulk-get-state
+      parameters:
+      - in: path
+        name: statestore
+        description: Statestore from where to retrieve data
+        required: true
+        schema:
+          type: string
+      requestBody: 
+        description: Values to store
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/StateRequestArray" 
+      responses:
+        "200": 
+          description: "State retrieved successfully"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StateGetResponse"
+        "204":
+          description: "State Key is not found"
+        "400":
+          description: "State store is missing or misconfigured"
+        "500":
+          description: "An error occurred, check the Dapr logs"
+  /v1.0/state/{statestore}/transaction:
+    post: 
+      tags:
+        - state
+      summary: Set state to the Statestore as a transactional operation
+      description: Persists the changes to the state store as a transactional operation. 
+      operationId: post-transaction-set-state
+      parameters:
+      - in: path
+        name: statestore
+        description: Statestore from where to retrieve data
+        required: true
+        schema:
+          type: string
+      requestBody: 
+        description: Values to store
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/StateRequestArray" 
+      responses:
+        "200": 
+          description: "State retrieved successfully"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StateGetResponse"
+        "204":
+          description: "State Key is not found"
+        "400":
+          description: "State store is missing or misconfigured"
+        "500":
+          description: "An error occurred, check the Dapr logs"
+    put: 
+      tags:
+        - state
+      summary: Set state to the Statestore as a transactional operation
+      description: Persists the changes to the state store as a transactional operation. 
+      operationId: put-transaction-set-state
+      parameters:
+      - in: path
+        name: statestore
+        description: Statestore from where to retrieve data
+        required: true
+        schema:
+          type: string
+      requestBody: 
+        description: Values to store
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/StateRequestArray" 
+      responses:
+        "200": 
+          description: "State retrieved successfully"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StateGetResponse"
+        "204":
+          description: "State Key is not found"
+        "400":
+          description: "State store is missing or misconfigured"
+        "500":
           description: "An error occurred, check the Dapr logs"
 components:
   schemas:
