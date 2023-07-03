@@ -1,4 +1,4 @@
-module github.com/darp/sig-api/tck
+module github.com/darp/sig-api/tck/v0
 
 go 1.19
 
