@@ -11,7 +11,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	clients "github.com/darp/sig-api/tck/clients"
+	clients "github.com/salaboy/sig-api/tck/clients"
 )
 
 var statestoreName = "statestore"
