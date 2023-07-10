@@ -7,8 +7,13 @@ services:
     image: "redis:alpine"
     ports:
       - "6379:6379"
+    healthcheck:
+      test: [ "CMD", "redis-cli", "--raw", "incr", "ping" ]
   tck-dapr:
     image: "daprio/daprd:edge"
+    depends_on: 
+      redis: 
+        condition: service_healthy
     ports: 
       - "3500:3500"
     command: ["./daprd",

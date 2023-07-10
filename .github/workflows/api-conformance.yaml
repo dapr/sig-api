@@ -1,0 +1,26 @@
+name: API Conformance Tests
+on:
+  push:
+  pull_request:
+
+jobs:
+  api-conformance-test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out Git repositor
+      uses: actions/checkout@v1
+    - name: Set up Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12.x
+        registry-url: https://registry.npmjs.org/
+    - name: Install dependencies
+      run: npm install
+    - name: Install portman
+      run: npm install -g @apideck/portman && portman -l statestore-api/http-1/statestore.yaml -o tck/postman/statestore.postman.json
+    - name: Build the stack
+      run: docker-compose -f tck/docker-compose.yaml up -d  
+    - name: Install newman
+      run: npm install -g newman && newman run tck/postman/statestore.postman.json --env-var "baseUrl=http://localhost:8080"   
+    - name: Shutdown the stack
+      run: docker-compose -f tck/docker-compose.yaml down
