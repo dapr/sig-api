@@ -21,6 +21,6 @@ jobs:
     - name: Build the stack
       run: docker-compose -f tck/docker-compose.yaml up -d  
     - name: Install newman
-      run: npm install -g newman && newman run tck/postman/statestore.postman.json --env-var "baseUrl=http://localhost:8080"   
+      run: npm install -g newman && newman run tck/postman/statestore.postman.json --env-var "baseUrl=http://localhost:3500"   
     - name: Shutdown the stack
       run: docker-compose -f tck/docker-compose.yaml down
