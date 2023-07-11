@@ -14,11 +14,11 @@ jobs:
       with:
         node-version: 12.x
         registry-url: https://registry.npmjs.org/
-    - name: Install and run portman
-      run: npm install -g @apideck/portman && portman -t true -l statestore-api/http-1/statestore.yaml -o tck/postman/statestore.postman.json --portmanConfigFile tck/portman/portman.config.statestore.json 
+    - name: Install portman and newman
+      run: npm install -g @apideck/portman && npm install -g newman
     - name: Start the stack
       run: docker-compose -f tck/docker-compose.yaml up -d  
-    - name: Install and run newman
-      run: npm install -g newman && newman run tck/postman/statestore.postman.json --env-var "baseUrl=http://localhost:3500"   
+    - name: Run API conformance tests
+      run:  portman --cliOptionsFile tck/portman/portman-cli-options.json
     - name: Shutdown the stack
       run: docker-compose -f tck/docker-compose.yaml down
