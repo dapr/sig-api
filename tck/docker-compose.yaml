@@ -18,6 +18,8 @@ services:
       - "3500:3500"
     command: ["./daprd",
      "-app-id", "tck-app",
+     "-app-port", "8080",
+     "-app-channel-address", "127.0.0.1",
      "-components-path", "/components"]
     volumes:
         - "./components/:/components"

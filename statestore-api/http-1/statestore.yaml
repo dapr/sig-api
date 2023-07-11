@@ -167,7 +167,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/StateRequestArray" 
+              $ref: "#/components/schemas/BulkStateRequest" 
       responses:
         "200": 
           description: "State retrieved successfully"
@@ -199,7 +199,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/StateRequestArray" 
+              $ref: "#/components/schemas/BulkStateRequest" 
       responses:
         "200": 
           description: "State retrieved successfully"
@@ -213,75 +213,81 @@ paths:
           description: "State store is missing or misconfigured"
         "500":
           description: "An error occurred, check the Dapr logs"
-  /v1.0/state/{statestore}/transaction:
-    post: 
-      tags:
-        - state
-      summary: Set state to the Statestore as a transactional operation
-      description: Persists the changes to the state store as a transactional operation. 
-      operationId: post-transaction-set-state
-      parameters:
-      - in: path
-        name: statestore
-        description: Statestore from where to retrieve data
-        required: true
-        schema:
-          type: string
-      requestBody: 
-        description: Values to store
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/StateRequestArray" 
-      responses:
-        "200": 
-          description: "State retrieved successfully"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/StateGetResponse"
-        "204":
-          description: "State Key is not found"
-        "400":
-          description: "State store is missing or misconfigured"
-        "500":
-          description: "An error occurred, check the Dapr logs"
-    put: 
-      tags:
-        - state
-      summary: Set state to the Statestore as a transactional operation
-      description: Persists the changes to the state store as a transactional operation. 
-      operationId: put-transaction-set-state
-      parameters:
-      - in: path
-        name: statestore
-        description: Statestore from where to retrieve data
-        required: true
-        schema:
-          type: string
-      requestBody: 
-        description: Values to store
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/StateRequestArray" 
-      responses:
-        "200": 
-          description: "State retrieved successfully"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/StateGetResponse"
-        "204":
-          description: "State Key is not found"
-        "400":
-          description: "State store is missing or misconfigured"
-        "500":
-          description: "An error occurred, check the Dapr logs"
+  # /v1.0/state/{statestore}/transaction:
+  #   post: 
+  #     tags:
+  #       - state
+  #     summary: Set state to the Statestore as a transactional operation
+  #     description: Persists the changes to the state store as a transactional operation. 
+  #     operationId: post-transaction-set-state
+  #     parameters:
+  #     - in: path
+  #       name: statestore
+  #       description: Statestore from where to retrieve data
+  #       required: true
+  #       schema:
+  #         type: string
+  #     requestBody: 
+  #       description: Values to store
+  #       content:
+  #         application/json:
+  #           schema:
+  #             $ref: "#/components/schemas/TransactionalOperationsRequest" 
+  #     responses:
+  #       "200": 
+  #         description: "State retrieved successfully"
+  #         content:
+  #           text/plain:
+  #             schema:
+  #               type: string
+  #           application/json:
+  #             schema:
+  #               $ref: "#/components/schemas/StateGetResponse"
+  #       "204":
+  #         description: "State Key is not found"
+  #       "400":
+  #         description: "State store is missing or misconfigured"
+  #       "500":
+  #         description: "An error occurred, check the Dapr logs"
+  #   put: 
+  #     tags:
+  #       - state
+  #     summary: Set state to the Statestore as a transactional operation
+  #     description: Persists the changes to the state store as a transactional operation. 
+  #     operationId: put-transaction-set-state
+  #     parameters:
+  #     - in: path
+  #       name: statestore
+  #       description: Statestore from where to retrieve data
+  #       required: true
+  #       schema:
+  #         type: string
+  #     requestBody: 
+  #       description: Values to store
+  #       content:
+  #         application/json:
+  #           schema:
+  #             $ref: "#/components/schemas/TransactionalOperationsRequest" 
+  #     responses:
+  #       "200": 
+  #         description: "State retrieved successfully"
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: "#/components/schemas/StateGetResponse"
+  #       "204":
+  #         description: "State Key is not found"
+  #       "400":
+  #         description: "State store is missing or misconfigured"
+  #       "500":
+  #         description: "An error occurred, check the Dapr logs"
 components:
   schemas:
     StateRequest:
       type: "object"
+      required:
+        - key
+        - value
       properties:
         key:
           type: "string"
@@ -289,21 +295,33 @@ components:
         value:
           type: "string"
           description: "state value, which can be any byte array"
-        etag:
-          description: "state ETag"
-          type: "string"
-        metadata:
-          description: "additional key-value pairs to be passed to the state store"
-          type: "object"
-        options:
-          description: "state operation options, see state operation options"
-          type: "string"
-      required:
-        - key
-        - value
+        # etag:
+        #   description: "state ETag"
+        #   type: "string"
+        # metadata:
+        #   description: "additional key-value pairs to be passed to the state store"
+        #   type: "object"
+        # options:
+        #   description: "state operation options, see state operation options"
+        #   type: "string"
+      
     StateRequestArray:
       type: "array"
       items:
         $ref: "#/components/schemas/StateRequest"
     StateGetResponse:
+      type: "object"
+    BulkStateRequest:
+      type: "object"
+      required: 
+      - keys
+      properties: 
+        keys: 
+          type: "array"
+          description: "keys to fetch"
+    TransactionalOperationsRequest:
+      type: "array"
+      items:
+        $ref: "#/components/schemas/TransactionalOperationRequest"      
+    TransactionalOperationRequest:
       type: "object"
