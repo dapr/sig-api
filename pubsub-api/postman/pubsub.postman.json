@@ -1,0 +1,383 @@
+{
+  "_": {
+    "postman_id": "9a5ff660-c9c5-4142-b1a3-da3c97e322d0"
+  },
+  "item": [
+    {
+      "id": "13c4b90c-b195-4ced-b005-78caa2f0b4d6",
+      "name": "state",
+      "description": {
+        "content": "PubSub APIs",
+        "type": "text/plain"
+      },
+      "item": [],
+      "event": []
+    },
+    {
+      "id": "fd779158-338f-4660-ab60-573e43ec0fa3",
+      "name": "pubsub",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "_": {
+            "portman_operation": "POST::/v1.0/publish/:pubsub/:topic"
+          },
+          "id": "d9be2c68-20da-4d17-b5ff-c362ae359f33",
+          "name": "Publish a message",
+          "request": {
+            "name": "Publish a message",
+            "description": {
+              "content": "Publish a message to a given topic",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1.0",
+                "publish",
+                ":pubsub",
+                ":topic"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "(Required) PubSub component to use",
+                    "type": "text/plain"
+                  },
+                  "type": "string",
+                  "value": "{{pubsub}}",
+                  "key": "pubsub"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "(Required) Topic in the PubSub to publish the message",
+                    "type": "text/plain"
+                  },
+                  "type": "string",
+                  "value": "{{topic}}",
+                  "key": "topic"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "disabled": false,
+                "key": "dapr-app-id",
+                "value": "{{dapr-app-id}}"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "_": {
+                "postman_previewlanguage": "text"
+              },
+              "id": "aa8ba77f-0ab1-4b22-b743-9084a69c1ee2",
+              "name": "Message delivered",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "publish",
+                    ":pubsub",
+                    ":topic"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) PubSub component to use",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "cupidatat anim",
+                      "key": "pubsub"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Topic in the PubSub to publish the message",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "cupidatat anim",
+                      "key": "topic"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": []
+            },
+            {
+              "_": {
+                "postman_previewlanguage": "text"
+              },
+              "id": "b24e75bb-1473-4f63-acd7-03c9a49036a5",
+              "name": "Message forbidden by access controls",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "publish",
+                    ":pubsub",
+                    ":topic"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) PubSub component to use",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "cupidatat anim",
+                      "key": "pubsub"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Topic in the PubSub to publish the message",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "cupidatat anim",
+                      "key": "topic"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": []
+            },
+            {
+              "_": {
+                "postman_previewlanguage": "text"
+              },
+              "id": "fb8aeb0a-8447-4c11-8c96-a1f082e02003",
+              "name": "No pubsub name or topic given",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "publish",
+                    ":pubsub",
+                    ":topic"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) PubSub component to use",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "cupidatat anim",
+                      "key": "pubsub"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Topic in the PubSub to publish the message",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "cupidatat anim",
+                      "key": "topic"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": []
+            },
+            {
+              "_": {
+                "postman_previewlanguage": "text"
+              },
+              "id": "f2467c8b-d656-4966-9a26-bfb82855a87b",
+              "name": "Delivery failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "publish",
+                    ":pubsub",
+                    ":topic"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) PubSub component to use",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "cupidatat anim",
+                      "key": "pubsub"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Topic in the PubSub to publish the message",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "cupidatat anim",
+                      "key": "topic"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": []
+            }
+          ],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "0b933512-00a5-4f35-ade9-c9cc20c5af4c",
+                "type": "text/javascript",
+                "exec": [
+                  "// Validate status 2xx \npm.test(\"[POST]::/v1.0/publish/:pubsub/:topic - Status code is 2xx\", function () {\n   pm.response.to.be.success;\n});\n"
+                ]
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://127.0.0.1:3500",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "9a5ff660-c9c5-4142-b1a3-da3c97e322d0",
+    "name": "Dapr PubSub APIs",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is the PubSub Dapr Component API specification.\n\nContact Support:\n Email: salaboy@diagrid.io",
+      "type": "text/plain"
+    }
+  }
+}

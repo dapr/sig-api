@@ -1,0 +1,1664 @@
+{
+  "_": {
+    "postman_id": "cc3ee7a7-ddf3-43bf-b2fa-e7055c625099"
+  },
+  "item": [
+    {
+      "id": "2d7cd9ba-9ebe-4ca4-9659-d84270e824bd",
+      "name": "state",
+      "description": {
+        "content": "Statestore APIs",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "_": {
+            "portman_operation": "POST::/v1.0/state/:statestore"
+          },
+          "id": "f4e02567-d5c8-4d62-8acc-216f7c698a2a",
+          "name": "Store state to the Statestore",
+          "request": {
+            "name": "Store state to the Statestore",
+            "description": {
+              "content": "Store state to the Dapr Statestore Component",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1.0",
+                "state",
+                ":statestore"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "(Required) Statestore from where to retrieve data",
+                    "type": "text/plain"
+                  },
+                  "type": "string",
+                  "value": "{{statestore}}",
+                  "key": "statestore"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "disabled": false,
+                "key": "dapr-app-id",
+                "value": "{{dapr-app-id}}"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"key\": \"exercitation cillum magna\",\n    \"value\": \"dolor ad molli\"\n  },\n  {\n    \"key\": \"elit nulla\",\n    \"value\": \"do nostrud anim\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "_": {
+                "postman_previewlanguage": "text"
+              },
+              "id": "101f37cc-7f2f-449a-a6f9-a85d72341e12",
+              "name": "State saved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "state",
+                    ":statestore"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Statestore from where to retrieve data",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "occaecat fugiat",
+                      "key": "statestore"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"key\": \"cupidatat ex\",\n    \"value\": \"commodo labore\"\n  },\n  {\n    \"key\": \"laborum \",\n    \"value\": \"dolore id minim\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": []
+            },
+            {
+              "_": {
+                "postman_previewlanguage": "text"
+              },
+              "id": "da416dd2-8034-4ea3-9996-95f5ee9efdc7",
+              "name": "State store is missing or misconfigured",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "state",
+                    ":statestore"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Statestore from where to retrieve data",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "occaecat fugiat",
+                      "key": "statestore"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"key\": \"cupidatat ex\",\n    \"value\": \"commodo labore\"\n  },\n  {\n    \"key\": \"laborum \",\n    \"value\": \"dolore id minim\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": []
+            },
+            {
+              "_": {
+                "postman_previewlanguage": "text"
+              },
+              "id": "4eeb8317-654d-4bc2-abed-d140ce141582",
+              "name": "An error occurred, check the Dapr logs",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "state",
+                    ":statestore"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Statestore from where to retrieve data",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "occaecat fugiat",
+                      "key": "statestore"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"key\": \"cupidatat ex\",\n    \"value\": \"commodo labore\"\n  },\n  {\n    \"key\": \"laborum \",\n    \"value\": \"dolore id minim\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": []
+            }
+          ],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "d1fba8d6-b6b3-4d52-93db-2ee68b098699",
+                "type": "text/javascript",
+                "exec": [
+                  "// Validate status 2xx \npm.test(\"[POST]::/v1.0/state/:statestore - Status code is 2xx\", function () {\n   pm.response.to.be.success;\n});\n"
+                ]
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "_": {
+            "portman_operation": "POST::/v1.0/state/:statestore/bulk"
+          },
+          "id": "201a8cbb-a5dd-4d82-aa0e-1d4d8e63c145",
+          "name": "Get Bulk state from the Statestore",
+          "request": {
+            "name": "Get Bulk state from the Statestore",
+            "description": {
+              "content": "This endpoint lets you get a list of values for a given list of keys.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1.0",
+                "state",
+                ":statestore",
+                "bulk"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "(Required) Statestore from where to retrieve data",
+                    "type": "text/plain"
+                  },
+                  "type": "string",
+                  "value": "{{statestore}}",
+                  "key": "statestore"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "disabled": false,
+                "key": "dapr-app-id",
+                "value": "{{dapr-app-id}}"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"keys\": []\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "_": {
+                "postman_previewlanguage": "json"
+              },
+              "id": "78fef3bd-8e53-4eba-84f9-a6404270969a",
+              "name": "State retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "state",
+                    ":statestore",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Statestore from where to retrieve data",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "occaecat fugiat",
+                      "key": "statestore"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"keys\": []\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": []
+            },
+            {
+              "_": {
+                "postman_previewlanguage": "text"
+              },
+              "id": "f53d471c-904c-4c21-8c68-f15f083b55ac",
+              "name": "State Key is not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "state",
+                    ":statestore",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Statestore from where to retrieve data",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "occaecat fugiat",
+                      "key": "statestore"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"keys\": []\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": []
+            },
+            {
+              "_": {
+                "postman_previewlanguage": "text"
+              },
+              "id": "1405ff31-a73b-4e27-a7a3-0f6475c8b486",
+              "name": "State store is missing or misconfigured",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "state",
+                    ":statestore",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Statestore from where to retrieve data",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "occaecat fugiat",
+                      "key": "statestore"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"keys\": []\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": []
+            },
+            {
+              "_": {
+                "postman_previewlanguage": "text"
+              },
+              "id": "337c3c35-21d1-4561-87d0-d5d85838b464",
+              "name": "An error occurred, check the Dapr logs",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "state",
+                    ":statestore",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Statestore from where to retrieve data",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "occaecat fugiat",
+                      "key": "statestore"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"keys\": []\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": []
+            }
+          ],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "ec16140d-d756-44ce-9192-eb331f8959b5",
+                "type": "text/javascript",
+                "exec": [
+                  "// Validate status 2xx \npm.test(\"[POST]::/v1.0/state/:statestore/bulk - Status code is 2xx\", function () {\n   pm.response.to.be.success;\n});\n"
+                ]
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "_": {
+            "portman_operation": "PUT::/v1.0/state/:statestore"
+          },
+          "id": "a2e61e6c-a461-4f35-8e5d-190dafaba9b8",
+          "name": "Store state to the Statestore",
+          "request": {
+            "name": "Store state to the Statestore",
+            "description": {
+              "content": "Store state to the Dapr Statestore Component",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1.0",
+                "state",
+                ":statestore"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "(Required) Statestore from where to retrieve data",
+                    "type": "text/plain"
+                  },
+                  "type": "string",
+                  "value": "{{statestore}}",
+                  "key": "statestore"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "disabled": false,
+                "key": "dapr-app-id",
+                "value": "{{dapr-app-id}}"
+              }
+            ],
+            "method": "PUT",
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"key\": \"cupidatat ex\",\n    \"value\": \"commodo labore\"\n  },\n  {\n    \"key\": \"laborum \",\n    \"value\": \"dolore id minim\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "_": {
+                "postman_previewlanguage": "text"
+              },
+              "id": "0784af97-975a-4005-aa8d-3c86c736e4fe",
+              "name": "State saved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "state",
+                    ":statestore"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Statestore from where to retrieve data",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "occaecat fugiat",
+                      "key": "statestore"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"key\": \"cupidatat ex\",\n    \"value\": \"commodo labore\"\n  },\n  {\n    \"key\": \"laborum \",\n    \"value\": \"dolore id minim\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": []
+            },
+            {
+              "_": {
+                "postman_previewlanguage": "text"
+              },
+              "id": "d7180e8e-6592-446a-a4d7-f11fff66b9c8",
+              "name": "State store is missing or misconfigured",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "state",
+                    ":statestore"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Statestore from where to retrieve data",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "occaecat fugiat",
+                      "key": "statestore"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"key\": \"cupidatat ex\",\n    \"value\": \"commodo labore\"\n  },\n  {\n    \"key\": \"laborum \",\n    \"value\": \"dolore id minim\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": []
+            },
+            {
+              "_": {
+                "postman_previewlanguage": "text"
+              },
+              "id": "4e44c379-45a0-461a-b6ad-f1fc49ebbe6d",
+              "name": "An error occurred, check the Dapr logs",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "state",
+                    ":statestore"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Statestore from where to retrieve data",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "occaecat fugiat",
+                      "key": "statestore"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"key\": \"cupidatat ex\",\n    \"value\": \"commodo labore\"\n  },\n  {\n    \"key\": \"laborum \",\n    \"value\": \"dolore id minim\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": []
+            }
+          ],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "13cbdecf-eca7-4c4d-b54a-cc8347593b5f",
+                "type": "text/javascript",
+                "exec": [
+                  "// Validate status 2xx \npm.test(\"[PUT]::/v1.0/state/:statestore - Status code is 2xx\", function () {\n   pm.response.to.be.success;\n});\n"
+                ]
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "_": {
+            "portman_operation": "PUT::/v1.0/state/:statestore/bulk"
+          },
+          "id": "7037f946-7fbf-4370-a610-f97c42fcfd9f",
+          "name": "Get Bulk state from the Statestore",
+          "request": {
+            "name": "Get Bulk state from the Statestore",
+            "description": {
+              "content": "This endpoint lets you get a list of values for a given list of keys.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1.0",
+                "state",
+                ":statestore",
+                "bulk"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "(Required) Statestore from where to retrieve data",
+                    "type": "text/plain"
+                  },
+                  "type": "string",
+                  "value": "{{statestore}}",
+                  "key": "statestore"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "disabled": false,
+                "key": "dapr-app-id",
+                "value": "{{dapr-app-id}}"
+              }
+            ],
+            "method": "PUT",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"keys\": []\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "_": {
+                "postman_previewlanguage": "json"
+              },
+              "id": "6cc72ef9-96f1-4864-a90f-005a625b49ec",
+              "name": "State retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "state",
+                    ":statestore",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Statestore from where to retrieve data",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "occaecat fugiat",
+                      "key": "statestore"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"keys\": []\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": []
+            },
+            {
+              "_": {
+                "postman_previewlanguage": "text"
+              },
+              "id": "44dfb080-0a8f-4381-8ae1-1eb321947abc",
+              "name": "State Key is not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "state",
+                    ":statestore",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Statestore from where to retrieve data",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "occaecat fugiat",
+                      "key": "statestore"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"keys\": []\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": []
+            },
+            {
+              "_": {
+                "postman_previewlanguage": "text"
+              },
+              "id": "f83175da-a638-45f7-b609-c7e0c0f5e071",
+              "name": "State store is missing or misconfigured",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "state",
+                    ":statestore",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Statestore from where to retrieve data",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "occaecat fugiat",
+                      "key": "statestore"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"keys\": []\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": []
+            },
+            {
+              "_": {
+                "postman_previewlanguage": "text"
+              },
+              "id": "25358089-73b0-4001-8dba-8805d7e9371e",
+              "name": "An error occurred, check the Dapr logs",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "state",
+                    ":statestore",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Statestore from where to retrieve data",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "occaecat fugiat",
+                      "key": "statestore"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"keys\": []\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": []
+            }
+          ],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "96441de8-63c5-4295-8c32-c6a3ceff76e8",
+                "type": "text/javascript",
+                "exec": [
+                  "// Validate status 2xx \npm.test(\"[PUT]::/v1.0/state/:statestore/bulk - Status code is 2xx\", function () {\n   pm.response.to.be.success;\n});\n"
+                ]
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "_": {
+            "portman_operation": "GET::/v1.0/state/:statestore/:key"
+          },
+          "id": "2768f01e-c8d9-4035-a861-3ab723035dd9",
+          "name": "Get state From Statestore",
+          "request": {
+            "name": "Get state From Statestore",
+            "description": {
+              "content": "Get stored state from the Dapr Statestore Component",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1.0",
+                "state",
+                ":statestore",
+                ":key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "read consistency mode",
+                    "type": "text/plain"
+                  },
+                  "key": "consistency",
+                  "value": "strong"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "(Required) Statestore from where to retrieve data",
+                    "type": "text/plain"
+                  },
+                  "type": "string",
+                  "value": "{{statestore}}",
+                  "key": "statestore"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "(Required) the key of the desired state",
+                    "type": "text/plain"
+                  },
+                  "type": "string",
+                  "value": "occaecat fugiat{{key}}",
+                  "key": "key"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "disabled": false,
+                "key": "dapr-app-id",
+                "value": "{{dapr-app-id}}"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "_": {
+                "postman_previewlanguage": "json"
+              },
+              "id": "f73d09e0-33ae-40ed-9844-a9a14117177a",
+              "name": "State retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "state",
+                    ":statestore",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "consistency",
+                      "value": "strong"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Statestore from where to retrieve data",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "occaecat fugiat",
+                      "key": "statestore"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) the key of the desired state",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "occaecat fugiat",
+                      "key": "key"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": []
+            },
+            {
+              "_": {
+                "postman_previewlanguage": "text"
+              },
+              "id": "7d33271e-30cb-43a9-b8c1-b510bd0de010",
+              "name": "State Key is not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "state",
+                    ":statestore",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "consistency",
+                      "value": "strong"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Statestore from where to retrieve data",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "occaecat fugiat",
+                      "key": "statestore"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) the key of the desired state",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "occaecat fugiat",
+                      "key": "key"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": []
+            },
+            {
+              "_": {
+                "postman_previewlanguage": "text"
+              },
+              "id": "f7c81435-886c-45a7-bdb9-ea4376b03c02",
+              "name": "State store is missing or misconfigured",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "state",
+                    ":statestore",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "consistency",
+                      "value": "strong"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Statestore from where to retrieve data",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "occaecat fugiat",
+                      "key": "statestore"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) the key of the desired state",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "occaecat fugiat",
+                      "key": "key"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": []
+            },
+            {
+              "_": {
+                "postman_previewlanguage": "text"
+              },
+              "id": "e76583e2-febd-44d9-92c5-301b545f9c61",
+              "name": "An error occurred, check the Dapr logs",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "state",
+                    ":statestore",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "consistency",
+                      "value": "strong"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Statestore from where to retrieve data",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "occaecat fugiat",
+                      "key": "statestore"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) the key of the desired state",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "occaecat fugiat",
+                      "key": "key"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": []
+            }
+          ],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "1d0c897e-a52f-4a5a-ae02-0fa2478c01dd",
+                "type": "text/javascript",
+                "exec": [
+                  "// Validate status 2xx \npm.test(\"[GET]::/v1.0/state/:statestore/:key - Status code is 2xx\", function () {\n   pm.response.to.be.success;\n});\n"
+                ]
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "_": {
+            "portman_operation": "DELETE::/v1.0/state/:statestore/:key"
+          },
+          "id": "ee17d150-8b68-43f0-9189-04f38a8ff874",
+          "name": "Delete state from the Statestore",
+          "request": {
+            "name": "Delete state from the Statestore",
+            "description": {
+              "content": "Delete state from teh Dapr Statestore Component",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1.0",
+                "state",
+                ":statestore",
+                ":key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "(Required) metadata.name field in the user configured state store component yaml. Please refer Dapr State Store configuration structure mentioned above.",
+                    "type": "text/plain"
+                  },
+                  "type": "string",
+                  "value": "{{statestore}}",
+                  "key": "statestore"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "(Required) the key of the desired state",
+                    "type": "text/plain"
+                  },
+                  "type": "string",
+                  "value": "occaecat fugiat{{key}}",
+                  "key": "key"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "key": "dapr-app-id",
+                "value": "{{dapr-app-id}}"
+              }
+            ],
+            "method": "DELETE"
+          },
+          "response": [
+            {
+              "_": {
+                "postman_previewlanguage": "text"
+              },
+              "id": "9f3891bf-d341-4915-ab01-3526bbc8b3a9",
+              "name": "Deleted Key successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "state",
+                    ":statestore",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) metadata.name field in the user configured state store component yaml. Please refer Dapr State Store configuration structure mentioned above.",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "occaecat fugiat",
+                      "key": "statestore"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) the key of the desired state",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "occaecat fugiat",
+                      "key": "key"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": []
+            },
+            {
+              "_": {
+                "postman_previewlanguage": "text"
+              },
+              "id": "31e29d69-9c45-4f13-a28c-ede42b937518",
+              "name": "State store is missing or misconfigured",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "state",
+                    ":statestore",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) metadata.name field in the user configured state store component yaml. Please refer Dapr State Store configuration structure mentioned above.",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "occaecat fugiat",
+                      "key": "statestore"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) the key of the desired state",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "occaecat fugiat",
+                      "key": "key"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": []
+            },
+            {
+              "_": {
+                "postman_previewlanguage": "text"
+              },
+              "id": "2bddbc1d-cca8-430e-aeed-f086931dd439",
+              "name": "An error occurred, check the Dapr logs",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "state",
+                    ":statestore",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) metadata.name field in the user configured state store component yaml. Please refer Dapr State Store configuration structure mentioned above.",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "occaecat fugiat",
+                      "key": "statestore"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) the key of the desired state",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "occaecat fugiat",
+                      "key": "key"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": []
+            }
+          ],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "25a05046-421c-4ef7-903a-c53071cd6db4",
+                "type": "text/javascript",
+                "exec": [
+                  "// Validate status 2xx \npm.test(\"[DELETE]::/v1.0/state/:statestore/:key - Status code is 2xx\", function () {\n   pm.response.to.be.success;\n});\n"
+                ]
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://127.0.0.1:3500",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "cc3ee7a7-ddf3-43bf-b2fa-e7055c625099",
+    "name": "Dapr Statestore APIs",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is the Statestore Dapr Component API specification.\n\nContact Support:\n Email: salaboy@diagrid.io",
+      "type": "text/plain"
+    }
+  }
+}
