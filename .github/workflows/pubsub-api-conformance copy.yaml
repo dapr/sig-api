@@ -1,4 +1,4 @@
-name: API Conformance Tests
+name: PubSub API Conformance Tests
 on:
   push:
   pull_request:
