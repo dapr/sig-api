@@ -1,0 +1,131 @@
+{
+  "version": 1.0,
+  "tests": {
+    "contractTests": [
+      {
+        "openApiOperation": "*::/*",
+        "statusSuccess": {
+          "enabled": true
+        }
+      },
+      {
+        "openApiOperation": "*::/*",
+        "responseTime": {
+          "enabled": false,
+          "maxMs": 300
+        }
+      },
+     
+      {
+        "openApiOperation": "*::/*",
+        "headersPresent": {
+          "enabled": true
+        }
+      }
+    ],
+    "contentTests": [],
+    "extendTests": [],
+    "variationTests": []
+  },
+  "assignVariables": [],
+  "overwrites": [
+    {
+      "openApiOperation": "POST::/v1.0/state/*",
+      "overwriteRequestPathVariables": [
+        {
+          "key": "statestore",
+          "value": "{{statestore}}",
+          "overwrite": true
+        }
+      ],
+      "overwriteRequestHeaders": [
+        {
+          "key": "dapr-app-id",
+          "value": "{{dapr-app-id}}",
+          "overwrite": true
+        }
+      ]
+    },
+    {
+      "openApiOperation": "PUT::/v1.0/state/*",
+      "overwriteRequestPathVariables": [
+        {
+          "key": "statestore",
+          "value": "{{statestore}}",
+          "overwrite": true
+        }
+      ],
+      "overwriteRequestHeaders": [
+        {
+          "key": "dapr-app-id",
+          "value": "{{dapr-app-id}}",
+          "overwrite": true
+        }
+      ]
+    },
+    {
+      "openApiOperation": "DELETE::/v1.0/state/*",
+      "overwriteRequestPathVariables": [
+        {
+          "key": "statestore",
+          "value": "{{statestore}}",
+          "overwrite": true
+        },
+       {
+          "key": "key",
+          "value": "{{key}}",
+          "overwrite": false
+        }
+      ],
+      "overwriteRequestHeaders": [
+        {
+          "key": "dapr-app-id",
+          "value": "{{dapr-app-id}}",
+          "overwrite": true
+        }
+      ]
+    },
+    {
+      "openApiOperation": "GET::/v1.0/state/*",
+      "overwriteRequestPathVariables": [
+        {
+          "key": "statestore",
+          "value": "{{statestore}}",
+          "overwrite": true
+        },
+       {
+          "key": "key",
+          "value": "{{key}}",
+          "overwrite": false
+        }
+      ],
+      "overwriteRequestHeaders": [
+        {
+          "key": "dapr-app-id",
+          "value": "{{dapr-app-id}}",
+          "overwrite": true
+        }
+      ]
+    }
+
+  ],
+  "globals": {
+    "collectionPreRequestScripts": [],
+    "keyValueReplacements": {},
+    "valueReplacements": {},
+    "rawReplacements": [],
+    "orderOfOperations": [
+      "POST::/v1.0/state/{statestore}",
+      "PUT::/v1.0/state/{statestore}",
+      "GET::/v1.0/state/{statestore}/{key}",
+      "DELETE::/v1.0/state/{statestore}/{key}",
+      "GET::/v1.0/state/{statestore}/{key}",
+      "POST::/v1.0/state/{statestore}/bulk",
+      "PUT::/v1.0/state/{statestore}/bulk",
+      "POST::/v1.0/state/{statestore}/transaction",
+      "PUT::/v1.0/state/{statestore}/transaction"
+    ]
+  }
+  
+  
+}
