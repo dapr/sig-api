@@ -2,7 +2,7 @@ openapi: 3.0.3
 info:
   title: Dapr Statestore APIs
   description: |-
-    This is the Statestore Dapr Component API specification. Using this APIs 
+    This is the Statestore Dapr Component API specification.
   termsOfService: https://dapr.io/
   contact:
     email: salaboy@diagrid.io
@@ -14,7 +14,7 @@ externalDocs:
   description: Find out more about Dapr
   url: https://dapr.io/
 servers:
-  - url: http://localhost:3500/api/v3
+  - url: http://localhost:3500/api/
 tags:
   - name: state
     description: Statestore APIs

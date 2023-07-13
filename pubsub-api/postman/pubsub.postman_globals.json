@@ -1,0 +1,21 @@
+{
+	"id": "e0fb6cf9-38fa-4eb8-81d0-d326e64cd208",
+	"values": [
+		{
+			"key": "pubsub",
+			"value": "pubsub",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "topic",
+			"value": "topic",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"name": "Globals",
+	"_postman_variable_scope": "globals",
+	"_postman_exported_at": "2023-07-11T11:10:13.657Z",
+	"_postman_exported_using": "Postman/10.15.8"
+}
