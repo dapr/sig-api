@@ -1,7 +1,7 @@
 version: '3'
 services:
   ############################
-  # Redis state store
+  # Redis state store and pubsub
   ############################
   redis:
     image: "redis:alpine"
