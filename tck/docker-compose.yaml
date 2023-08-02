@@ -1,0 +1,25 @@
+version: '3'
+services:
+  ############################
+  # Redis state store and pubsub
+  ############################
+  redis:
+    image: "redis:alpine"
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: [ "CMD", "redis-cli", "--raw", "incr", "ping" ]
+  tck-dapr:
+    image: "daprio/daprd:edge"
+    depends_on: 
+      redis: 
+        condition: service_healthy
+    ports: 
+      - "3500:3500"
+    command: ["./daprd",
+     "-app-id", "tck-app",
+     "-app-port", "8080",
+     "-app-channel-address", "127.0.0.1",
+     "-components-path", "/components"]
+    volumes:
+        - "./components/:/components"

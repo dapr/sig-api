@@ -1,0 +1,16 @@
+{
+    "local": "statestore-api/statestore.yaml",
+    "baseUrl": "http://127.0.0.1:3500",
+    "output": "statestore-api/postman/statestore.postman.json",
+    "portmanConfigFile": "statestore-api/portman/portman.config.statestore.json",
+    "envFile": "statestore-api/postman/statestore.postman_globals.json",
+    "includeTests": true,
+    "syncPostman": false,
+    "runNewman": true,
+    "newmanRunOptions": {
+        "environment": "statestore-api/postman/statestore.postman_globals.json",
+        "iteration-count": 5,
+        "ignore-redirects": true,
+        "insecure": true
+      }
+  }

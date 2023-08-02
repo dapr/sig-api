@@ -1,0 +1,63 @@
+openapi: 3.0.3
+info:
+  title: Dapr PubSub APIs
+  description: |-
+    This is the PubSub Dapr Component API specification.
+  termsOfService: https://dapr.io/
+  contact:
+    email: salaboy@diagrid.io
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+externalDocs:
+  description: Find out more about Dapr
+  url: https://dapr.io/
+servers:
+  - url: http://localhost:3500/api/
+tags:
+  - name: state
+    description: PubSub APIs
+    externalDocs:
+      description: Find out more the Statestore API
+      url: https://docs.dapr.io/reference/api/pubsub_api/
+paths:
+  /v1.0/publish/{pubsub}/{topic}:
+    post: 
+      tags:
+        - pubsub
+      summary: Publish a message
+      description: Publish a message to a given topic
+      operationId: post-publish-message
+      parameters:
+      - in: path
+        name: pubsub
+        description: PubSub component to use
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: topic
+        description: Topic in the PubSub to publish the message
+        required: true
+        schema:
+          type: string    
+      requestBody: 
+        description: Message to publish
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Message"
+      responses:
+        '204':
+          description: "Message delivered"
+        '403':
+          description: "Message forbidden by access controls"
+        '404':
+          description: "No pubsub name or topic given"  
+        '500':
+          description: "Delivery failed"
+components:
+  schemas:
+    Message:
+      type: "object"
