@@ -103,6 +103,11 @@ paths:
       description: Store state to the Dapr Statestore Component
       operationId: post-store-state
       parameters:
+      - in: header
+        name: dapr-app-id
+        schema:
+          type: string
+        required: false
       - in: path
         name: statestore
         description: Statestore from where to retrieve data
@@ -115,6 +120,12 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/StateRequestArray"
+            examples:
+              starwars:
+                summary: startwars state
+                value: 
+                  - key: "weapon"
+                    value: "DeathStar"
       responses:
         '204':
           description: "State saved"
@@ -141,6 +152,12 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/StateRequestArray"
+            examples:
+              starwars:
+                summary: startwars state
+                value: 
+                  - key: "weapon"
+                    value: "DeathStar"  
       responses:
         '204':
           description: "State saved"
